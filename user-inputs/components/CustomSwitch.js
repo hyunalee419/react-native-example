@@ -6,8 +6,8 @@ export default () => {
 	return (
 		<Switch
 			label="Disable Next Switch"
-			value={false}
-			onValueChange={(v) => { setValue(v); console.log(v)}}
+			value={value}
+			onValueChange={(v) => setValue(v)}
 		/>
 	)
 };
