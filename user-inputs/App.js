@@ -1,34 +1,9 @@
-import React, { useState }  from 'react';
-import { StyleSheet, Text, TextInput, View, Picker } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 
-const Input = props => (
-  <View style={styles.textInputContainer}>
-    <Text style={styles.textInputLabel}>
-      {props.label}
-    </Text>
-    <TextInput
-      style={styles.textInput}
-      {...props}
-    />
-  </View>
-);
-
-const Select = ({ onValueChange }) => {
-  const [ language, setLanguage ] = useState('');
-  return (
-		<Picker
-			selectedValue={language}
-			style={{height: 50, width: 100}}
-			onValueChange={(itemValue, itemIndex) => {
-			  setLanguage(itemValue);
-			  if (onValueChange) onValueChange(itemValue, itemIndex);
-			}}
-    >
-			<Picker.Item label="Java" value="java" />
-			<Picker.Item label="JavaScript" value="js" />
-		</Picker>
-	);
-}
+import Input from './components/Input';
+import Select from './components/Select';
+import CustomSwitch from './components/CustomSwitch';
 
 export default function App() {
   return (
@@ -47,7 +22,10 @@ export default function App() {
         onSubmitEditing={(e) => {console.log('Submit: ', e)}}
         onFocus={() => console.log('focus')}
       />
-      <Select />
+
+      <Select/>
+
+      <CustomSwitch/>
     </View>
   );
 }
@@ -57,14 +35,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#efefef',
     justifyContent: 'center',
-  },
-  textInputContainer: {
-    margin: 10
-  },
-  textInputLabel: {
-    fontWeight: 'bold'
-  },
-  textInput: {
-    backgroundColor: '#fff'
   }
 });
