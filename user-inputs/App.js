@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState }  from 'react';
+import { StyleSheet, Text, TextInput, View, Picker } from 'react-native';
 
 const Input = props => (
   <View style={styles.textInputContainer}>
@@ -12,6 +12,23 @@ const Input = props => (
     />
   </View>
 );
+
+const Select = ({ onValueChange }) => {
+  const [ language, setLanguage ] = useState('');
+  return (
+		<Picker
+			selectedValue={language}
+			style={{height: 50, width: 100}}
+			onValueChange={(itemValue, itemIndex) => {
+			  setLanguage(itemValue);
+			  if (onValueChange) onValueChange(itemValue, itemIndex);
+			}}
+    >
+			<Picker.Item label="Java" value="java" />
+			<Picker.Item label="JavaScript" value="js" />
+		</Picker>
+	);
+}
 
 export default function App() {
   return (
@@ -30,6 +47,7 @@ export default function App() {
         onSubmitEditing={(e) => {console.log('Submit: ', e)}}
         onFocus={() => console.log('focus')}
       />
+      <Select />
     </View>
   );
 }
