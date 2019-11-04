@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-// import LoadingImages from './LoadingImages';
-import ResizingImages from './ResizingImages';
+// import LoadingImages from './examples/LoadingImages';
+// import ResizingImages from './examples/ResizingImages';
+import LazyLoading from './examples/LazyLoading';
 
-export default () => <ResizingImages/>
+export default () => <LazyLoading/>

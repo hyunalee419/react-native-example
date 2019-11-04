@@ -49,7 +49,7 @@ LoadingImages.defaultProps = {
 	reactSource: {
 		uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png',
 	},
-	relaySource: require('./images/coinbox.png'),
+	relaySource: require('../images/coinbox.png'),
 };
 
 export default LoadingImages;
